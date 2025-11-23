@@ -13,7 +13,7 @@
 |-----|---|
 | SSL |   |
 | TLS |   |
-| CA  |   |
+| CA  | Certificate Authority  |
 | RSA |   |
 
 ## Explanation of Files
