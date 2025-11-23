@@ -4,16 +4,17 @@
 
 ## References
 
-[GitHub | soarez/ca.md | How to setup your own CA with OpenSSL](https://gist.github.com/soarez/9688998)
-[Gitea | HTTPS Setup](https://docs.gitea.com/administration/https-setup)
+- [GitHub | soarez/ca.md | How to setup your own CA with OpenSSL](https://gist.github.com/soarez/9688998)
+- [Gitea | HTTPS Setup](https://docs.gitea.com/administration/https-setup)
 
 ## Acronyms
 
-- **SSL**
-- **TLS**
-- **CA**
-- **RSA** 
-
+|     |   |
+|-----|---|
+| SSL |   |
+| TLS |   |
+| CA  |   |
+| RSA |   |
 
 ## Explanation of Files
 
