@@ -9,20 +9,21 @@
 
 ## Acronyms
 
-|     |   |
-|-----|---|
-| SSL |   |
-| TLS |   |
-| CA  | Certificate Authority  |
-| RSA |   |
+|     |                                                                                 |
+|-----|---------------------------------------------------------------------------------|
+| SSL | Secure Sockets Layer                                                            |
+| TLS | Transport Layer Security                                                        |
+| CA  | Certificate Authority                                                           |
+| RSA | Rivest–Shamir–Adleman public-key cryptosystem used for secure data transmission |
 
 ## Explanation of Files
 
-- **ca.key**    RSA Private Key for your Certifiacate Authority  
-- **ca.crt**                                                     
-- **cert.pem**                                                   
-- **key.pem**                                                    
-
+|          |                                                                            |
+|----------|----------------------------------------------------------------------------|
+| ca.key   | RSA Private Key for your Certifiacate Authority                            |
+| ca.crt   |                                                                            |
+| cert.pem |                                                                            |              
+| key.pem  |                                                                            |
 
 This command generates an RSA private key for your CA. The -aes256 flag encrypts the key with a passphrase, and 2048 specifies the key length in bits. You will be prompted to enter and verify a strong passphrase.
 
