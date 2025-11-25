@@ -7,6 +7,12 @@
 - [GitHub | soarez/ca.md | How to setup your own CA with OpenSSL](https://gist.github.com/soarez/9688998)
 - [Gitea | HTTPS Setup](https://docs.gitea.com/administration/https-setup)
 
+## Basic Concepts
+
+Q: What is a Certificate?
+
+Q: How does Self-Hosting the CA differ from using a 3rd party?
+
 ## Acronyms
 
 |     |                                                                                 |
@@ -15,13 +21,16 @@
 | TLS | Transport Layer Security                                                        |
 | CA  | Certificate Authority                                                           |
 | RSA | Rivest–Shamir–Adleman public-key cryptosystem used for secure data transmission |
+| PKI | Public Key Infrastructure. An arrangment that binds public keys to identiies    |
 
 ## Explanation of Files
 
 |          |                                                                            |
 |----------|----------------------------------------------------------------------------|
-| ca.key   | RSA Private Key for your Certifiacate Authority                            |
-| ca.crt   |                                                                            |
+| *.key    | RSA Private Key for your Certifiacate Authority                            |
+| *.csr    | Certificate Signing Request.                                               |
+| *.crt    | Self-Signed certificate for the CA                                         |
+| *.srl    | A log of used serial numbers issued by the CA. OpenSSL uses this file name by default. |
 | cert.pem |                                                                            |              
 | key.pem  |                                                                            |
 
