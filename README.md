@@ -9,7 +9,40 @@
 
 ## Basic Concepts
 
-Q: What is a Certificate?
+
+For illistrative purposes, let's suppose there are two people of interest.
+
+- **A**lice
+- **B**ob
+- The rest of the world
+
+Alice and Bob would like to talk. However, they want to make sure 
+
+1. They are not being inpersonated
+2. The messages they send to eachother are unaltered
+3. The messages they send to eachother cannot be read by someone else
+
+These three needs are what is meant by saying Alice and Bob want to "communicate securely".
+
+### Asymmetric Cryptography
+
+Asymmetric cryptography solves part of this problem by using two related keys, one private, one public.
+
+Ciphered text with the public key can only be deciphered by the corresponding private key, and verifiable signatures with the public key can only be created with the private key.
+
+In our example, Bob and Alice would use openssl to generate their public and private key. They would keep their private keys secret, and tell eachother to use their public keys to cipher messages sent to them.
+
+**TODO** How does this relate to Digital Signatures?
+
+**TODO** Add actual examples of signing, encrupting, verifying messages using openssl - see docs on [openssl pkeytul](https://docs.openssl.org/master/man1/openssl-pkeyutl/).
+
+The weak spot in this arrangment is the key exchange. 
+
+### Public Key Infrastructure
+
+[Okta | What Is Public Key Infrastructure (PKI) & How Does It Work?](https://www.okta.com/identity-101/public-key-infrastructure/)
+
+
 
 Q: How does Self-Hosting the CA differ from using a 3rd party?
 
