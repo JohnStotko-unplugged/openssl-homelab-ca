@@ -6,8 +6,8 @@ For this exercise, we will go through how to use asymetric cryptography to send 
 
 TODO switch to use genpkey instead... see [OpenSSL Documentation | openssl-genpkey Notes](https://docs.openssl.org/master/man1/openssl-genpkey/#notes)
 
-[OpenSSL Documentation | openssl-genrsa](https://docs.openssl.org/3.4/man1/openssl-genrsa/)
-[OpenSSL Documentation | openssl-rsa](https://docs.openssl.org/3.4/man1/openssl-rsa/)
+- [OpenSSL Documentation | openssl-genrsa](https://docs.openssl.org/3.4/man1/openssl-genrsa/)
+- [OpenSSL Documentation | openssl-rsa](https://docs.openssl.org/3.4/man1/openssl-rsa/)
 
 Let's generate some RSA keys. When generating keys, you will be prompted for a passphrase. Since this is just a learning exercise, use something that is easy to remember. When getting data from the key, you will be prompted for this passphrase again.
 
@@ -35,7 +35,8 @@ openssl rsa -in bob.key -pubout -out bob.pubkey
 
 ## Sending the message
 
-[OpenSSL Documentation | openssl-pkeytutl](https://docs.openssl.org/master/man1/openssl-pkeyutl/)
+- [OpenSSL Documentation | openssl-pkeytutl](https://docs.openssl.org/master/man1/openssl-pkeyutl/)
+- [OpenSSL Documentation | openssl-dgst](https://docs.openssl.org/master/man1/openssl-dgst/)
 
 In this directory there is a file called `message.txt`. Alice would like to send the contents of this message to Bob.
 
@@ -60,23 +61,24 @@ Alice will encrypt the message using Bob's public key so that only Bob can read 
 openssl pkeyutl -encrypt -in message.txt -inkey bob.pubkey -pubin -out enc_message.txt
 ```
 
-
-Alice can then Sign the encrypted message so that Bob knows it came from her.
-
-
-TODO Explain why the hash is needed...
+Alice can then create a signature of the encrypted message so that Bob knows it came from her.
 
 ```
-openssl dgst -sha256 -binary enc_message.txt > hash.txt
-openssl pkeyutl -sign -in hash.txt -inkey alice.key -out message_sig
+openssl dgst -sha256 -sign alice.key -out enc_message.txt.signature enc_message.txt
 ```
 
-Alice then sends Bob the encrypted message (enc_message.txt) and signature (message_sig)
+Alice then sends Bob the encrypted message (enc_message.txt) and signature (enc_message.txt.signature)
 
-TODO Is there a way to combine the signature and encrypted content in a single file?
+### Verifying and Decrypting
 
 When Bob recieves this message, he will want to verify it using Alice's public key
 
 ```
-openssl pkeyutl -verify 
+openssl dgst -sha256 -verify alice.pubkey -signature enc_message.txt.signature enc_message.txt
+```
+
+Now that Bob is sure this message came from Alice, he can decrypt the encrypted message using his private key
+
+``` Bob
+openssl pkeyutl -decrypt -in enc_message.txt -inkey bob.key 
 ```
