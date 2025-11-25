@@ -32,7 +32,7 @@ Ciphered text with the public key can only be deciphered by the corresponding pr
 
 In our example, Bob and Alice would use openssl to generate their public and private key. They would keep their private keys secret, and tell eachother to use their public keys to cipher messages sent to them.
 
-To see this in action, look at [Asymetric Cryptography to send secure messages using OpenSSL](example-openssl-encryption.md)
+To see this in action, look at [Asymetric Cryptography to send secure messages using OpenSSL](example1/example-openssl-encryption.md)
 
 **TODO** How does this relate to Digital Signatures?
 
@@ -87,5 +87,6 @@ openssl req -new -x509 -key ca.key -days 3650 -sha256 -out ca.crt
 -days 3650: Sets the certificate validity period to 10 years (365 * 10 days). Adjust as needed.
 -sha256: Uses SHA256 for the signature hash.
 -out ca.crt: Specifies the output file for the CA certificate.
+
 You will be prompted to enter the passphrase for ca.key and then to provide distinguished name information (Country, State, Locality, Organization, Organizational Unit, Common Name, Email Address). The Common Name (CN) should clearly identify your CA (e.g., "My Root CA").
 
