@@ -33,9 +33,9 @@ openssl genrsa -aes256 -out bob.key 2048
 openssl rsa -in bob.key -pubout -out bob.pubkey
 ```
 
-## Encryption and Decryption
+## Sending the message
 
-[OpenSSL Documentation | openssl-pkeytul](https://docs.openssl.org/master/man1/openssl-pkeyutl/)
+[OpenSSL Documentation | openssl-pkeytutl](https://docs.openssl.org/master/man1/openssl-pkeyutl/)
 
 In this directory there is a file called `message.txt`. Alice would like to send the contents of this message to Bob.
 
@@ -52,5 +52,31 @@ Bob has these files
 - bob.pubkey
 - alice.pubkey
 
+### Encryption and Signing
+
+Alice will encrypt the message using Bob's public key so that only Bob can read it.
+
+```
+openssl pkeyutl -encrypt -in message.txt -inkey bob.pubkey -pubin -out enc_message.txt
+```
 
 
+Alice can then Sign the encrypted message so that Bob knows it came from her.
+
+
+TODO Explain why the hash is needed...
+
+```
+openssl dgst -sha256 -binary enc_message.txt > hash.txt
+openssl pkeyutl -sign -in hash.txt -inkey alice.key -out message_sig
+```
+
+Alice then sends Bob the encrypted message (enc_message.txt) and signature (message_sig)
+
+TODO Is there a way to combine the signature and encrypted content in a single file?
+
+When Bob recieves this message, he will want to verify it using Alice's public key
+
+```
+openssl pkeyutl -verify 
+```
