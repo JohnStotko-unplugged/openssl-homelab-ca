@@ -32,9 +32,11 @@ Ciphered text with the public key can only be deciphered by the corresponding pr
 
 In our example, Bob and Alice would use openssl to generate their public and private key. They would keep their private keys secret, and tell eachother to use their public keys to cipher messages sent to them.
 
+To see this in action, look at [Asymetric Cryptography to send secure messages using OpenSSL](example-openssl-encryption.md)
+
 **TODO** How does this relate to Digital Signatures?
 
-**TODO** Add actual examples of signing, encrupting, verifying messages using openssl - see docs on [openssl pkeytul](https://docs.openssl.org/master/man1/openssl-pkeyutl/).
+
 
 The weak spot in this arrangment is the key exchange. 
 
