@@ -58,17 +58,6 @@ Q: How does Self-Hosting the CA differ from using a 3rd party?
 | RSA | Rivest–Shamir–Adleman public-key cryptosystem used for secure data transmission |
 | PKI | Public Key Infrastructure. An arrangment that binds public keys to identiies    |
 
-## Explanation of Files
-
-|          |                                                                            |
-|----------|----------------------------------------------------------------------------|
-| *.key    | RSA Private Key for your Certifiacate Authority                            |
-| *.csr    | Certificate Signing Request.                                               |
-| *.crt    | Self-Signed certificate for the CA                                         |
-| *.srl    | A log of used serial numbers issued by the CA. OpenSSL uses this file name by default. |
-| cert.pem |                                                                            |              
-| key.pem  |                                                                            |
-
 This command generates an RSA private key for your CA. The -aes256 flag encrypts the key with a passphrase, and 2048 specifies the key length in bits. You will be prompted to enter and verify a strong passphrase.
 
 ```
