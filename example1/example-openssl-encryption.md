@@ -9,6 +9,8 @@ TODO switch to use genpkey instead... see [OpenSSL Documentation | openssl-genpk
 - [OpenSSL Documentation | openssl-genrsa](https://docs.openssl.org/3.4/man1/openssl-genrsa/)
 - [OpenSSL Documentation | openssl-rsa](https://docs.openssl.org/3.4/man1/openssl-rsa/)
 
+> There doesn't seem to be any formal standards on naming conventions for key files. However, there are some common ones. ssh-keygen uses `<id-algorithm>` for the private key, and `<id-algorithm>.pub` to denote the public key [die.net | ssh-keygen](https://linux.die.net/man/1/ssh-keygen).
+
 Let's generate some RSA keys. When generating keys, you will be prompted for a passphrase. Since this is just a learning exercise, use something that is easy to remember. When getting data from the key, you will be prompted for this passphrase again.
 
 This command generates a RSA private key for Alice. 
