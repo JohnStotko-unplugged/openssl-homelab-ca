@@ -4,7 +4,7 @@ For this exercise, we will go through how to use asymetric cryptography to send 
 
 ## Key Generation
 
-TODO switch to use genpkey instead... see [OpenSSL Documentation | openssl-genpkey Notes](https://docs.openssl.org/master/man1/openssl-genpkey/#notes)
+
 
 - [OpenSSL Documentation | openssl-genrsa](https://docs.openssl.org/3.4/man1/openssl-genrsa/)
 - [OpenSSL Documentation | openssl-rsa](https://docs.openssl.org/3.4/man1/openssl-rsa/)
@@ -17,6 +17,9 @@ This command generates a private key for Alice.
 ```
 openssl genrsa -aes256 -out alice.key 2048
 ```
+
+> According to the notes in the genpkey documentation, using the genkey progream is recommended over a specifiec algorithm like genrsa. See [OpenSSL Documentation | openssl-genpkey Notes](https://docs.openssl.org/master/man1/openssl-genpkey/#notes).
+
 
 This one uses the private key to derive the public key, and writes out the public key.
 ```

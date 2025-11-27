@@ -34,10 +34,6 @@ In our example, Bob and Alice would use openssl to generate their public and pri
 
 To see this in action, look at [Asymetric Cryptography to send secure messages using OpenSSL](example1/example-openssl-encryption.md)
 
-**TODO** How does this relate to Digital Signatures?
-
-
-
 The weak spot in this arrangment is the key exchange. 
 
 ### Public Key Infrastructure
